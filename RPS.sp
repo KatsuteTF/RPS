@@ -4,7 +4,7 @@
 
 #include <sourcemod>
 
-static float delay;
+float delay;
 
 ConVar delayCV;
 
@@ -27,7 +27,7 @@ public OnPluginStart(){
     HookEvent("rps_taunt_event", OnRPS);
 }
 
-public void OnConvarChanged(const Handle convar, const char[] oldValue, const char[] newValue){
+public void OnConvarChanged(const ConVar convar, const char[] oldValue, const char[] newValue){
 	if(convar == delayCV)
         delay = StringToFloat(newValue);
 }
