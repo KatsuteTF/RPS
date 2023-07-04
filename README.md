@@ -1,6 +1,6 @@
 # RPS
 
-Kill teammates if they loose in RPS.
+Kill teammates if they loose in RPS
 
 |cvar|param|description|
 |---|---|---|

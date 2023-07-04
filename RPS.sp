@@ -4,7 +4,7 @@
 
 #include <sourcemod>
 
-static float delay
+static float delay;
 
 Handle delayCV;
 
