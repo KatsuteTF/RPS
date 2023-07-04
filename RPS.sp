@@ -6,7 +6,7 @@
 
 static float delay;
 
-Handle delayCV;
+ConVar delayCV;
 
 // plugin
 
@@ -22,7 +22,7 @@ public OnPluginStart(){
     delayCV = CreateConVar("sm_rps_delay", "3", "Delay to kill loser in seconds");
     delayCV.AddChangeHook(OnConvarChanged);
 
-    delay = GetConVarFloat(delayCV);
+    delay = delayCV.FloatValue;
 
     HookEvent("rps_taunt_event", OnRPS);
 }
@@ -37,7 +37,7 @@ public void OnRPS(const Event event, const char[] name, const bool dontBroadcast
     int loser  = GetEventInt(event, "loser");
 
     if(GetClientTeam(winner) == GetClientTeam(loser))
-        CreateTimer(GetConVarFloat(delay), OnRPSLose, loser, TIMER_FLAG_NO_MAPCHANGE);
+        CreateTimer(delay, OnRPSLose, loser, TIMER_FLAG_NO_MAPCHANGE);
 }
 
 public Action OnRPSLose(const Handle timer, const int client){
