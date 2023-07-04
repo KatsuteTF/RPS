@@ -1,0 +1,14 @@
+name: Release
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+    types: [opened, reopened, synchronize]
+
+jobs:
+  release:
+    name: Release Plugin
+    uses: KatsuteTF/Workflows/.github/workflows/release.yml@main
+    with:
+      file: RPS.sp
