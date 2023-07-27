@@ -45,7 +45,7 @@ public void OnClientPostAdminCheck(int client){
 
 public Action OnTakeDamage(int victim, int &attacker, int &inflictor, float &damage, int &damagetype, int &weapon, float damageForce[3], float damagePosition[3], int damagecustom){
     if(victim == attacker &&
-       damageForce[0] == 0.0 && damageForce[1] == 0.0 && damageForce[2] == 0.0,
+       damageForce[0] == 0.0 && damageForce[1] == 0.0 && damageForce[2] == 0.0 &&
        damagePosition[0] == 0.0 && damagePosition[1] == 0.0 && damagePosition[2] == 0.0){
         attacker = weapon;
         weapon = -1;
