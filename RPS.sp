@@ -28,19 +28,19 @@ public OnPluginStart(){
     HookEvent("rps_taunt_event", OnRPS);
 
     for(int i = 1; i < MaxClients; i++){
-		if(!IsClientInGame(i))
-			continue;
-		SDKHook(i, SDKHook_OnTakeDamageAlive, OnTakeDamage);
-	}
+        if(!IsClientInGame(i))
+            continue;
+        SDKHook(i, SDKHook_OnTakeDamageAlive, OnTakeDamage);
+    }
 }
 
 public void OnConvarChanged(const ConVar convar, const char[] oldValue, const char[] newValue){
-	if(convar == delayCV)
+    if(convar == delayCV)
         delay = StringToFloat(newValue);
 }
 
 public void OnClientPostAdminCheck(int client){
-	SDKHook(client, SDKHook_OnTakeDamageAlive, OnTakeDamage);
+    SDKHook(client, SDKHook_OnTakeDamageAlive, OnTakeDamage);
 }
 
 public Action OnTakeDamage(int victim, int &attacker, int &inflictor, float &damage, int &damagetype, int &weapon, float damageForce[3], float damagePosition[3], int damagecustom){
