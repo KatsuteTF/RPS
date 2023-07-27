@@ -15,9 +15,9 @@ ArrayStack RPSStack;
 
 public Plugin myinfo = {
     name        = "RPS Teammate",
-    author      = "Katsute",
+    author      = "Katsute, Peanut       ",
     description = "Kill teammate if they loose in RPS",
-    version     = "1.0",
+    version     = "1.1",
     url         = "https://github.com/KatsuteTF/RPS"
 }
 
@@ -41,18 +41,20 @@ public void OnRPS(const Event event, const char[] name, const bool dontBroadcast
     int winner = GetEventInt(event, "winner");
     int loser  = GetEventInt(event, "loser");
 
-    if(GetClientTeam(winner) == GetClientTeam(loser)) 
+    if(GetClientTeam(winner) == GetClientTeam(loser)) {
         RPSStack.Push(winner);
         CreateTimer(delay, OnRPSLose, loser, TIMER_FLAG_NO_MAPCHANGE);
+    }
 }
 
 public Action OnRPSLose(const Handle timer, const int loser){
     float damageForce[3] = { 0.0, 0.0, 1024.0 };
     int winner = RPSStack.Pop();
     
-    if(IsClientInGame(loser) & IsClientInGame(winner))
+    if(IsClientInGame(loser) & IsClientInGame(winner)) {
         mp_friendlyfire.IntValue = 1;
         SDKHooks_TakeDamage(loser, 0, winner, 999.0, DMG_GENERIC, -1, damageForce, .bypassHooks = false);
         mp_friendlyfire.IntValue = 0;
-        return Plugin_Continue;
+    }
+    return Plugin_Continue;
 }
