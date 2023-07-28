@@ -2,11 +2,11 @@
 
 Kill teammates if they loose in rock-paper-scissors
 
-<div align="center">
-    <a href="https://github.com/KatsuteTF/RPS">
-        <img src="https://raw.githubusercontent.com/KatsuteTF/RPS/main/RPS.gif" height="300">
-    </a>
-</div>
+<a href="https://github.com/KatsuteTF/RPS">
+    <img src="https://raw.githubusercontent.com/KatsuteTF/RPS/main/RPS.gif" height="300">
+</a>
+
+<br>
 
 |cvar|param|description|
 |---|:-:|---|
