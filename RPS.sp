@@ -27,7 +27,7 @@ public OnPluginStart(){
 
     HookEvent("rps_taunt_event", OnRPS);
 
-    for(int i = 1; i < MaxClients; i++){
+    for(int i = 1; i <= MaxClients; i++){
         if(!IsClientInGame(i))
             continue;
         SDKHook(i, SDKHook_OnTakeDamageAlive, OnTakeDamage);
